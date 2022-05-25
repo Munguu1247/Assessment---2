@@ -21,17 +21,16 @@ import csv
 file = open("employees.csv", 'r')
 try:
     csv_reader = csv.reader(file)
-    average_salary = 0
+    total_salary = 0
+    line_count = 0
     for row in csv_reader:
-        if row[3] == "Manager":
-            print(row)
-
+        if line_count == 0:
+            print()
+        else:
+            if row[3] == "Manager":
+                total_salary += int(row[2])
+        line_count += 1
+    print("The average salary of managers is "+ str(int(total_salary/len(row))) + " dollars.")
 finally:
-   file.close()
-
-
-
-
-
-
+    file.close()
 
