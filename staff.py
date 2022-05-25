@@ -9,8 +9,8 @@ greeting("Mr", "Binayak")
 
 def my(part, first_name, last_name, student_id):
     print(" This is ", part, '\n',
-          "Student name: ", first_name, last_name,
-          '\n',"Student ID: ", student_id)
+          "Student name:", first_name, last_name,
+          '\n',"Student ID:", student_id)
 
 my("Assessment 2", "Mungunchimeg", "Batbayar", "s4662982")
 
@@ -24,6 +24,8 @@ try:
     csv_reader = csv.reader(file)
     total_salary = 0
     line_count = 0
+    min_salary = 0
+
     for row in csv_reader:
         if line_count == 0:
             print()
@@ -32,11 +34,13 @@ try:
                 total_salary += int(row[2])
         line_count += 1
     print("The average salary of managers is "+ str(int(total_salary/len(row))) + " dollars.")
-    print(row[0], row[1], "has the lowest salary ", row[2])
+
+    if row in csv_reader:
+        min_salary = min(row)
+    print("The lowest salary is ", min_salary)
 
 finally:
     file.close()
-
 
 
 
