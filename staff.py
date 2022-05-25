@@ -16,6 +16,7 @@ my("Assessment 2", "Mungunchimeg", "Batbayar", "s4662982")
 
 
 # 1. The average salary of staff whose employees types is "Manager"
+# 2. The full name of the staff member who has the lowest salary
 # Install the package (import csv)
 import csv
 file = open("employees.csv", 'r')
@@ -31,6 +32,11 @@ try:
                 total_salary += int(row[2])
         line_count += 1
     print("The average salary of managers is "+ str(int(total_salary/len(row))) + " dollars.")
+    print(row[0], row[1], "has the lowest salary ", row[2])
+
 finally:
     file.close()
+
+
+
 
