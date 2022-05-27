@@ -25,22 +25,36 @@ try:
     total_salary = 0
     line_count = 0
     min_salary = 0
+    person_with_min_salary = []
 
     for row in csv_reader:
+
         if line_count == 0:
+
             print()
+
+        elif line_count == 1:
+            min_salary = int(row[2])
+            person_with_min_salary = (row[0], row[1])
+            if row[3] == "Manager":
+                total_salary += int(row[2])
+
         else:
+
+            if min_salary > int(row[2]):
+                min_salary = int(row[2])
+
+                person_with_min_salary = (row[0], row[1])
+
             if row[3] == "Manager":
                 total_salary += int(row[2])
         line_count += 1
-    print("The average salary of managers is "+ str(int(total_salary/len(row))) + " dollars.")
 
-    if row in csv_reader:
-        min_salary = min(row)
-    print("The lowest salary is ", min_salary)
+    print("The average salary of managers is " + str(int(total_salary / len(row))) + " dollars.")
+
+    print(f"{str(person_with_min_salary)[1:-1]} has the lowest salary ({format(float(min_salary), '.2f')}).")
 
 finally:
     file.close()
-
 
 
