@@ -5,6 +5,7 @@ def greeting(title, name):
     print(f"Hello,", title, name)
 
 greeting("Mr", "Binayak")
+print(" ")
 
 
 def my(part, first_name, last_name, student_id):
@@ -50,9 +51,10 @@ try:
                 total_salary += int(row[2])
         line_count += 1
 
-    print("The average salary of managers is " + str(int(total_salary / len(row))) + " dollars.")
 
-    print(f"{str(person_with_min_salary)[1:-1]} has the lowest salary ({format(float(min_salary), '.2f')}).")
+    print(f'The average salary of managers is {int(total_salary / len(row)):>5,d} dollars.')
+
+    print(f"{' '.join(person_with_min_salary)} has the lowest salary $({format(float(min_salary), '.2f')}).")
 
 finally:
     file.close()
