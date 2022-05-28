@@ -2,7 +2,7 @@
 # Programming solution: solve a real-life scenario using coding knowledge and skills
 
 def greeting(title, name):
-    print(f"Hello,", title, name)
+    print(f"Hello,", title, name,)
 
 greeting("Mr", "Binayak")
 print(" ")
